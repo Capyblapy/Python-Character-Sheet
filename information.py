@@ -1,3 +1,4 @@
+# This section is for all of the page related storage.
 def overviewPage():
     print("This is the overview page!")
     print(r"""
@@ -22,6 +23,7 @@ pages = {
     },
 }
 
+# This section is for all of the class related storage.
 classes = {
     "Druid": {
         "Spellcasting": {
@@ -85,4 +87,14 @@ classes = {
             }
         },
     }
+}
+
+# This section is for all of the class features
+features = {
+
+}
+
+# This section is for all of the spells
+spells = {
+    
 }
