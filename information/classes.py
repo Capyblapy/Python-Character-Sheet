@@ -1,28 +1,3 @@
-# This section is for all of the page related storage.
-def overviewPage():
-    print("This is the overview page!")
-    print(r"""
-                    /)
-            /\___/\ ((
-            \`@_@'/  ))
-            {_:Y:.}_//
-    ----------{_}^-'{_}----------
-    """)
-
-def editPage():
-    print(":P (got lazy no art!)")
-
-pages = {
-    1: {
-        "Name": "Overview",
-        "Func": overviewPage,
-    },
-    2: {
-        "Name": "Edit",
-        "Func": editPage,
-    },
-}
-
 # This section is for all of the class related storage.
 classes = {
     "Druid": {
@@ -87,14 +62,4 @@ classes = {
             }
         },
     }
-}
-
-# This section is for all of the class features
-features = {
-
-}
-
-# This section is for all of the spells
-spells = {
-    
 }

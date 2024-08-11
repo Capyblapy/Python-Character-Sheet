@@ -1,42 +1,10 @@
 import os #os.system('cls')
-from information import pages
-from information import classes
-class color:
-   PURPLE = '\033[95m'
-   CYAN = '\033[96m'
-   DARKCYAN = '\033[36m'
-   BLUE = '\033[94m'
-   GREEN = '\033[92m'
-   YELLOW = '\033[93m'
-   RED = '\033[91m'
-   BOLD = '\033[1m'
-   UNDERLINE = '\033[4m'
-   END = '\033[0m'
+from utils import *
 
-def getInput(inputString, type):
-    newInput = input(inputString)
-
-    if type == float:
-        try:
-            value = float(newInput)
-            return value
-        except:
-            print("You did not give a number!")
-            return getInput(inputString, type)
-    elif type == int:
-        try:
-            value = int(newInput)
-            return value
-        except:
-            print("You did not give a intiger!")
-            return getInput(inputString, type)    
-    elif type == str:
-        try:
-            value = str(newInput)
-            return value
-        except:
-            print("You did not give a string!")
-            return getInput(inputString, type)
+from information.pages import pages
+from information.classes import classes
+from information.spells import spells
+from information.features import features
 
 selectedPage = 1
 def initNewPage():
@@ -44,28 +12,34 @@ def initNewPage():
 
     os.system('cls')
 
+    charNum = 2 # Set this to how many EXTRA - you want.
     for page in pages:
         pageInfo = pages[page]
 
         if page == selectedPage:
-            print(color.BOLD + '[' + color.RED + str(page) + color.END + '] - ' + color.RED + pageInfo["Name"] + color.END + color.END + " ", end=' ')
+            string = f"{color.BOLD}[{color.RED}{str(page)}{color.END}] - {color.RED}{pageInfo['Name']}{color.END}{color.END} "
         else:
-            print('[' + str(page) +'] - ' + pageInfo["Name"] + " ", end=' ')
+            string = f"[{str(page)}] - {pageInfo["Name"]} "
+
+        charNum += len('['+str(page)+'] - '+pageInfo["Name"])
+        print(string, end=' ')
 
     print("")
-    print("---------------------------")
+    for _ in range(charNum):
+        print("-",end='')
     print("")
 
     pages[selectedPage]["Func"]()
 
-    print("")
-    newPage = getInput("Page: ", int)
-
-    try:
-        pages[newPage] # checking if its valid lol
-        selectedPage = newPage
-    except:
-        selectedPage = selectedPage
-    initNewPage()
+    # Test code to test if basic code worked or not!
+    #print("")
+    #newPage = input("Page #: ")
+    #
+    #try:
+    #    pages[int(newPage)] # checking if its valid lol
+    #    selectedPage = int(newPage)
+    #except:
+    #    selectedPage = selectedPage
+    #initNewPage()
 
 initNewPage()
