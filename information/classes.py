@@ -1,4 +1,5 @@
 # This section is for all of the class related storage.
+# when u add cleric your going to be editing these 3 next files ALOT
 classes = {
     "Druid": {
         "Spellcasting": {

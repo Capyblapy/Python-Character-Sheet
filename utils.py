@@ -2,7 +2,7 @@
 import json
 import os
 
-filename = "character.json"
+#filename = "character.json"
 writing = False
 
 template = {
@@ -25,29 +25,31 @@ template = {
     "spell-slots": {}
 }
 
-def checkForCharacter():
+def checkForCharacter(filename):
     # Checks for file if not exist make one!
-    if not os.path.exists(filename):
-        _file = open(filename, 'w')
+    if not os.path.exists('characters/'+filename+'.json'):
+        _file = open('characters/'+filename+'.json', 'w')
         json.dump(template, _file)
         _file.close()
 
     return True
 
-def getData():
+def getData(filename):
     # Make it return not saved if its already being written!!
     global writing
     if writing == True:
         return False
     
-    if checkForCharacter() == True:
-        _file = open(filename, 'r')
+    if checkForCharacter(filename) == True:
+        _file = open('characters/'+filename+'.json', 'r')
         data = json.load(_file)
         _file.close()
 
         return data
     else:
         return False
+
+# JSON utils not done i need to write a setData function
 
 # Other utils
 class color:
